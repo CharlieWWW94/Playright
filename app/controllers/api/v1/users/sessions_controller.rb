@@ -1,4 +1,5 @@
-class Api::V1::Users::SessionsController < ApplicationController
+class Api::V1::Users::SessionsController < Devise::SessionsController
+  skip_before_action :verify_authenticity_token, only: [:create]
   # Not sure I need this.. when up and running remove.
   respond_to :json
 
